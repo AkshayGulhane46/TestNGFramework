@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<suite name="loginTestSuite">
+    <LoginTC.test name="test">
+        <classes>
+            <class name="LoginTC.validLoginTC" />
+            <class name="LoginTC.invalidPasswordTC" />
+        </classes>
+
+    </LoginTC.test>
+</suite>
