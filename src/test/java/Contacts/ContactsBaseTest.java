@@ -33,19 +33,26 @@ public class ContactsBaseTest extends loginBaseTC{
         props.load(reader);
     }
 
-
-    public void openUrl() throws IOException {
+    public void loginWithValidUser() throws IOException {
+        // To open new instance of Chrome browser
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://akshaycrm.odoo.com/web/login");
+
+        // To set properties of the variable data
         String username = props.getProperty("LOGIN.username.xpath");
         String password = props.getProperty("LOGIN.password.xpath");
         String submitBtn = props.getProperty("LOGIN.submit.xpath");
+        String loginURL = props.getProperty("LOGIN.URL");
+        String ValidUserName = props.getProperty("LOGIN.Valid.UserName");
+        String ValidPassword = props.getProperty("Login.Valid.Password");
 
-        driver.findElement(By.xpath(username)).sendKeys("akshaytest345@gmail.com");
-        driver.findElement(By.xpath(password)).sendKeys("LenovoFlex2");
+        // To navigate in file
+        driver.get(loginURL);
+        driver.findElement(By.xpath(username)).sendKeys(ValidUserName);
+        driver.findElement(By.xpath(password)).sendKeys(ValidPassword);
         driver.findElement(By.xpath(submitBtn)).click();
     }
+
 
     public void waitForLoad(){
         new WebDriverWait(driver, Duration.ofSeconds(60),Duration.ofSeconds(5)).until(new ExpectedCondition<Boolean>() {
