@@ -14,20 +14,27 @@ public class deleteIndividualContactTC  extends ContactsBaseTest{
         openUrl();
         String contactsCTA = props.getProperty("CONTACTS.CTA.xpath.update");
 
+        waitForLoad();
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath(contactsCTA)).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("( //*[ text() = 'akshay LoginTC.test'])[1]")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         waitForLoad();
 
+        String ContactToBeDeleted = "Akshay Test";
+        String deleteContactXpath = "( //*[ text() = '"+ContactToBeDeleted+"'])[1]";
+
+        driver.findElement(By.xpath(deleteContactXpath)).click();
+
+        waitForLoad();
 
         driver.findElement(By.xpath("//i[@class='fa fa-cog']")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("(//*[ text() = 'Delete'])[1]")).click();
+
         waitForLoad();
+
+        driver.findElement(By.xpath("(//*[ text() = 'Delete'])[1]")).click();
+
+        waitForLoad();
+
         driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
     }
 }

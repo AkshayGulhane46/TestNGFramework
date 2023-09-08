@@ -23,7 +23,7 @@ public class createIndividualContactTC extends ContactsBaseTest{
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://akshaycrm.odoo.com/web#cids=1&menu_id=110&action=146&model=res.partner&view_type=form");
         driver.findElement(By.xpath(IndividualRadioCTA)).click();
-        driver.findElement(By.xpath(IndividualNameINPUT)).sendKeys("akshay LoginTC.test");
+        driver.findElement(By.xpath(IndividualNameINPUT)).sendKeys("Akshay Test");
         driver.findElement(By.xpath(IndividualCompanyNameINPUT)).sendKeys("ABC corporation");
         driver.findElement(By.xpath(IndividualCityNameInput)).sendKeys("Nagpur");
         driver.findElement(By.xpath(IndividualStateNameInput)).sendKeys("Maharashtra");
