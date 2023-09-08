@@ -26,7 +26,6 @@ public class ContactsBaseTest extends loginBaseTC{
     public static Properties props;
 
     @BeforeMethod(alwaysRun = true)
-
     public void baseTCMethod() throws IOException {
         FileReader reader = new FileReader("./src/main/resources/contactsLocators.properties");
         props=new Properties();
@@ -35,9 +34,11 @@ public class ContactsBaseTest extends loginBaseTC{
     }
 
     public void loginWithValidUser() throws IOException {
+        // To open new instance of Chrome browser
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+        // To set properties of the variable data
         String username = props.getProperty("LOGIN.username.xpath");
         String password = props.getProperty("LOGIN.password.xpath");
         String submitBtn = props.getProperty("LOGIN.submit.xpath");
@@ -45,12 +46,13 @@ public class ContactsBaseTest extends loginBaseTC{
         String ValidUserName = props.getProperty("LOGIN.Valid.UserName");
         String ValidPassword = props.getProperty("Login.Valid.Password");
 
-
+        // To navigate in file
         driver.get(loginURL);
         driver.findElement(By.xpath(username)).sendKeys(ValidUserName);
         driver.findElement(By.xpath(password)).sendKeys(ValidPassword);
         driver.findElement(By.xpath(submitBtn)).click();
     }
+
 
     public void waitForLoad(){
         new WebDriverWait(driver, Duration.ofSeconds(60),Duration.ofSeconds(5)).until(new ExpectedCondition<Boolean>() {
