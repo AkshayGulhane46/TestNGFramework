@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -21,7 +22,7 @@ import java.util.Date;
 import java.util.Properties;
 import LoginTC.loginBaseTC;
 
-public class ContactsBaseTest extends loginBaseTC{
+public class ContactsBaseTest{
     public static WebDriver driver;
     public static Properties props;
 
@@ -54,18 +55,24 @@ public class ContactsBaseTest extends loginBaseTC{
     }
 
 
-    public void waitForLoad(){
-        new WebDriverWait(driver, Duration.ofSeconds(60),Duration.ofSeconds(5)).until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver wd) {
-                try{
-                    return ((Long)((JavascriptExecutor)wd).executeScript("return jQuery.active") == 0 );
-                }catch (Exception ex){
-                    return true;
-                }
-            }
+    public void  waitForLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // Set a reasonable timeout
+        wait.until(webDriver -> {
+            String documentReadyState = (String)((JavascriptExecutor)webDriver).executeScript("return document.readyState");
+            return "complete".equals(documentReadyState);
         });
     }
+
+    public static void waitForElementToBeVisibleByXPath( String xpathExpression) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathExpression)));
+    }
+
+    public static void waitForElementToBeVisibleByCssSelector( String cssExpression) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssExpression)));
+    }
+
 
     @AfterTest
     public void tearDown(){

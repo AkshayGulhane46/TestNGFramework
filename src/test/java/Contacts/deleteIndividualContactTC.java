@@ -11,9 +11,11 @@ import java.util.concurrent.TimeUnit;
 public class deleteIndividualContactTC  extends ContactsBaseTest{
     @Test
     public void editCompanyContact() throws IOException, InterruptedException {
-        openUrl();
+        loginWithValidUser();
         String contactsCTA = props.getProperty("CONTACTS.CTA.xpath.update");
-
+        String deleteGearIcon = props.getProperty("CONTACTS.DELETE.Gear.Icon.xpath");
+        String deleteLink = props.getProperty("CONTACTS.DELETE.Delete.link");
+        String confirmBtn = props.getProperty("CONTACTS.DELETE.Confirm.btn");
         waitForLoad();
 
         driver.findElement(By.xpath(contactsCTA)).click();
@@ -21,20 +23,21 @@ public class deleteIndividualContactTC  extends ContactsBaseTest{
         waitForLoad();
 
         String ContactToBeDeleted = "Akshay Test";
-        String deleteContactXpath = "( //*[ text() = '"+ContactToBeDeleted+"'])[1]";
+        String deleteContactXpath = "(//*[text()='"+ContactToBeDeleted+"'])[1]";
 
+        waitForElementToBeVisibleByXPath(deleteContactXpath);
         driver.findElement(By.xpath(deleteContactXpath)).click();
 
-        waitForLoad();
 
-        driver.findElement(By.xpath("//i[@class='fa fa-cog']")).click();
+        waitForElementToBeVisibleByXPath(deleteGearIcon);
+        driver.findElement(By.xpath(deleteGearIcon)).click();
 
-        waitForLoad();
 
-        driver.findElement(By.xpath("(//*[ text() = 'Delete'])[1]")).click();
+        waitForElementToBeVisibleByXPath(deleteLink);
+        driver.findElement(By.xpath(deleteLink)).click();
 
-        waitForLoad();
 
-        driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
+        waitForElementToBeVisibleByXPath(confirmBtn);
+        driver.findElement(By.xpath(confirmBtn)).click();
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class editIndividualContactTC extends ContactsBaseTest {
     @Test
     public void editCompanyContact() throws IOException, InterruptedException {
-        openUrl();
+        loginWithValidUser();
         String contactsCTA = props.getProperty("CONTACTS.CTA.xpath.update");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath(contactsCTA)).click();

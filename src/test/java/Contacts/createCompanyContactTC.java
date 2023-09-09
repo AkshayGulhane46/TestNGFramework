@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class createCompanyContactTC extends ContactsBaseTest{
     @Test
     public void createCompanyContact() throws IOException, InterruptedException {
-        openUrl();
+        loginWithValidUser();
         String contactsCTA = props.getProperty("CONTACTS.CTA.xpath.update");
         String IndividualRadioCTA = props.getProperty("CONTACTS.INDIVIDUAL.Radio.CTA.xpath");
         String IndividualNameINPUT = props.getProperty("CONTACTS.INDIVIDUAL.Name.INPUT.xpath");

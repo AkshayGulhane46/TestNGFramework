@@ -29,7 +29,6 @@ public class loginBaseTC {
 
     @BeforeMethod(alwaysRun = true)
     public void openUrl() throws IOException {
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://akshaycrm.odoo.com/web/login");
