@@ -1,4 +1,4 @@
-package Contacts;
+package com.recruitCRM.Contacts;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class createNewContactTag extends ContactsBaseTest{
+   // Test to create a new contact TAG
     @Test
     public void createNewContactTag() throws IOException {
        loginWithValidUser();

@@ -1,15 +1,13 @@
-package Contacts;
+package com.recruitCRM.Contacts;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-public class deleteIndividualContactTC  extends ContactsBaseTest{
+public class deleteCompanyContactTC extends ContactsBaseTest{
 
-
+    // Test to delete a existing company contact
     @Test
     public void editCompanyContact() throws IOException, InterruptedException {
         loginWithValidUser();
@@ -23,7 +21,7 @@ public class deleteIndividualContactTC  extends ContactsBaseTest{
 
         waitForLoad();
 
-        String ContactToBeDeleted = "Akshay Test";
+        String ContactToBeDeleted = "Test Company";
         String deleteContactXpath = "(//*[text()='"+ContactToBeDeleted+"'])[1]";
 
         waitForElementToBeVisibleByXPath(deleteContactXpath);

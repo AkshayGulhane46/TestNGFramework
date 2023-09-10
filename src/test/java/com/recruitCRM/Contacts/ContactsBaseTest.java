@@ -1,4 +1,4 @@
-package Contacts;
+package com.recruitCRM.Contacts;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

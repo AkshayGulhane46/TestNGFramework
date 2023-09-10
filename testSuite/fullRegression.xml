@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<suite name="fullRegressionSuite">
+    <test name="test">
+
+        <listeners>
+            <listener class-name="com.recruitCRM.config.ExtentReportManager" />
+        </listeners>
+
+        <classes>
+            <class name="com.recruitCRM.Login.validLoginTest" />
+            <class name="com.recruitCRM.Login.invalidUserNameTest" />
+            <class name="com.recruitCRM.Login.invalidUserNamePasswordLoginTest" />
+            <class name="com.recruitCRM.Login.invalidPasswordTest" />
+            <class name="com.recruitCRM.Contacts.createNewContactTag" />
+            <class name="com.recruitCRM.Contacts.createIndividualContactTC" />
+            <class name="com.recruitCRM.Contacts.createCompanyContactTC" />
+            <class name="com.recruitCRM.Contacts.editIndividualContactTC" />
+            <class name="com.recruitCRM.Contacts.deleteIndividualContactTC" />
+            <class name="com.recruitCRM.Contacts.deleteCompanyContactTC" />
+        </classes>
+    </test>
+</suite>

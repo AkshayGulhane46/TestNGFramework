@@ -1,13 +1,13 @@
-package Contacts;
+package com.recruitCRM.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class editIndividualContactTC extends ContactsBaseTest {
+    // Test to edit an individual contact by adding image of the person
     @Test
     public void editCompanyContact() throws IOException, InterruptedException {
         loginWithValidUser();
