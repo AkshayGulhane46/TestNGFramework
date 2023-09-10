@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <suite name="loginTestSuite">
-    <LoginTC.test name="test">
+    <test name="test">
         <classes>
-            <class name="LoginTC.validLoginTC" />
-            <class name="LoginTC.invalidPasswordTC" />
+            <class name="LoginTC.validLoginTest" />
+            <class name="LoginTC.invalidPasswordTest" />
         </classes>
 
-    </LoginTC.test>
+    </test>
 </suite>

@@ -1,6 +1,5 @@
 package LoginTC;
 
-import LoginTC.loginBaseTC;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class validLoginTC extends loginBaseTC {
+public class validLoginTest extends LoginBaseTest {
     static ExtentTest test;
     static ExtentReports report;
 
@@ -24,15 +23,19 @@ public class validLoginTC extends loginBaseTC {
 
     @Test(testName = "validLoginTest")
     public void validLogin() throws IOException {
-        String username = loginBaseTC.props.getProperty("LOGIN.username.xpath");
-        String password = loginBaseTC.props.getProperty("LOGIN.password.xpath");
-        String submitBtn = loginBaseTC.props.getProperty("LOGIN.submit.xpath");
-        loginBaseTC.driver.findElement(By.xpath(username)).sendKeys("akshaytest345@gmail.com");
+        String username = LoginBaseTest.props.getProperty("LOGIN.username.xpath");
+        String password = LoginBaseTest.props.getProperty("LOGIN.password.xpath");
+        String submitBtn = LoginBaseTest.props.getProperty("LOGIN.submit.xpath");
+        String validUserName = props.getProperty("VALID.LOGIN.CREDENTIALS.USERNAME");
+        String validPassword = props.getProperty("VALID.LOGIN.CREDENTIALS.PASSWORD");
+
+        LoginBaseTest.driver.findElement(By.xpath(username)).sendKeys(validUserName);
         test.log(LogStatus.PASS, "Entered Valid UserName");
-        loginBaseTC.driver.findElement(By.xpath(password)).sendKeys("LenovoFlex2");
+        LoginBaseTest.driver.findElement(By.xpath(password)).sendKeys(validPassword);
         test.log(LogStatus.PASS, "Entered Valid Password");
-        loginBaseTC.driver.findElement(By.xpath(submitBtn)).click();
+        LoginBaseTest.driver.findElement(By.xpath(submitBtn)).click();
         test.log(LogStatus.PASS, "Clicked on Login Button");
+
     }
 
     @AfterClass

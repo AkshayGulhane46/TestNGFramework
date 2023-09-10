@@ -12,16 +12,22 @@ public class editIndividualContactTC extends ContactsBaseTest {
     public void editCompanyContact() throws IOException, InterruptedException {
         loginWithValidUser();
         String contactsCTA = props.getProperty("CONTACTS.CTA.xpath.update");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        String ContactToBeEdited= "Akshay Test";
+        String editContactXpath = "(//*[text()='"+ContactToBeEdited+"'])[1]";
+        waitForElementToBeVisibleByXPath(contactsCTA);
         driver.findElement(By.xpath(contactsCTA)).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("( //*[ text() = 'akshay LoginTC.test'])[1]")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        waitForLoad();
+
+        waitForElementToBeVisibleByXPath(editContactXpath);
+        driver.findElement(By.xpath(editContactXpath)).click();
+
 
         // Upload the profile picture
-        WebElement image = driver.findElement(By.xpath("//div[@class='d-inline-block position-relative opacity-trigger-hover']"));
-        WebElement editBtn = driver.findElement(By.xpath("//input[@type='file']"));
+        String imageXpath = props.getProperty("CONTACTS.EDIT.Image.xpath");
+        String editBtnXpath = props.getProperty("CONTACTS.EDIT.Pencil.xpath");
+
+        waitForElementToBeVisibleByXPath(imageXpath);
+        WebElement image = driver.findElement(By.xpath(imageXpath));
+        WebElement editBtn = driver.findElement(By.xpath(editBtnXpath));
 
         Actions actions = new Actions(driver);
         actions.moveToElement(image);

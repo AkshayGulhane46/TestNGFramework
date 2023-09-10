@@ -1,13 +1,11 @@
 package Contacts;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-public class deleteIndividualContactTC  extends ContactsBaseTest{
+import java.io.IOException;
+
+public class deleteCompanyContactTC extends ContactsBaseTest{
 
 
     @Test
@@ -23,7 +21,7 @@ public class deleteIndividualContactTC  extends ContactsBaseTest{
 
         waitForLoad();
 
-        String ContactToBeDeleted = "Akshay Test";
+        String ContactToBeDeleted = "Test Company";
         String deleteContactXpath = "(//*[text()='"+ContactToBeDeleted+"'])[1]";
 
         waitForElementToBeVisibleByXPath(deleteContactXpath);
