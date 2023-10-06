@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class deleteCompanyContactTC extends ContactsBaseTest{
 
-    // Test to delete a existing company contact from database
+    // Test to delete a existing company contact from
     @Test
     public void editCompanyContact() throws IOException, InterruptedException {
         loginWithValidUser();
